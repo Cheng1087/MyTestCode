@@ -1,11 +1,14 @@
 //VTK::System::Dec
-
 attribute vec4 vertexMC;
 
-attribute vec3 tcoordMC;
-varying vec3 tcoordVC;
+//VTK::Normal::Dec
+uniform mat4 MCDCMatrix;
+uniform mat4 VCDCMatrix;
+
+varying vec4 vPos;
 void main()
 {
-  tcoordVC = tcoordMC;
-  gl_Position = vertexMC;
+  normalVCVSOutput = normalMC;
+  vPos = MCDCMatrix * vertexMC;
+  gl_Position = vPos;
 }

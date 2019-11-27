@@ -1,9 +1,11 @@
 //VTK::System::Dec
 //VTK::Output::Dec
-varying vec3 tcoordVC;
+
+in vec3 normalVCVSOutput;
+
 uniform samplerCube cubemap;
 
 void main()
 {
-  gl_FragColor = texture(cubemap, tcoordVC);
+  gl_FragColor = texture(cubemap, normalVCVSOutput);
 }
